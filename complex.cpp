@@ -5,62 +5,62 @@
 
 using namespace std;
 
-double complex::mag() {
-	return sqrt(re*re + im*im); // 크기 구해서 반환
+double complex::get_mag() {
+	return sqrt(re_num*re_num + im_num*im_num); // 크기 구해서 반환
 }
-double complex::phase() {
+double complex::get_phase() {
 	// 복소수 --> 페이저 변환
-	if (re == 0.0) {
-		if (im >= 0.0) return PI / 2.0; // 90도
+	if (re_num == 0.0) {
+		if (im_num >= 0.0) return PI / 2.0; // 90도
 		else return -PI / 2.0; // -90도
 	}
-	else return atan(im / re);
+	else return atan(im_num / re_num);
 }
 complex complex::operator/(const complex& y) {
 
 	complex c;
-	c = complex(y.re, -y.im); // 복소수 y의 켤레복소수
-	if (re == 0.0 && im == 0.0) { cout << " complex: divided by 0\n"; return c; } // 예외처리
-	c = (*this + c) / (y.re * y.re + y.im * y.im);
+	c = complex(y.re_num, -y.im_num); // 복소수 y의 켤레복소수
+	if (re_num == 0.0 && im_num == 0.0) { cout << " complex: divided by 0\n"; return c; } // 예외처리
+	c = (*this + c) / (y.re_num * y.re_num + y.im_num * y.im_num);
 	return c;
 }
 complex& complex::operator=(const complex& x) {
-	re = x.re;
-	im = x.im;
+	re_num = x.re_num;
+	im_num = x.im_num;
 	return *this;
 }
 complex& complex::operator+=(const complex& y) {
-	re += y.re;
-	im += y.im;
+	re_num += y.re_num;
+	im_num += y.im_num;
 	return *this;
 }
 complex complex::operator+(const complex& y) {
 	complex c;
-	c.re = re + y.re;
-	c.im = im + y.im;
+	c.re_num = re_num + y.re_num;
+	c.im_num = im_num + y.im_num;
 	return c;
 }
 complex complex::operator-(const complex& y) {
 	complex c;
-	c.re = re - y.re;
-	c.im = im - y.im;
+	c.re_num = re_num - y.re_num;
+	c.im_num = im_num - y.im_num;
 	return c;
 }
 complex complex::operator*(const complex& y) {
 	complex c;
-	c.re = re*y.re - im*y.im;
-	c.im = re*y.im + im*y.re;
+	c.re_num = re_num*y.re_num - im_num*y.im_num;
+	c.im_num = re_num*y.im_num + im_num*y.re_num;
 	return c;
 }
 complex complex::operator/(const double& y) {
 	complex c;
-	c.re = re / y;
-	c.im = im / y;
+	c.re_num = re_num / y;
+	c.im_num = im_num / y;
 	return c;
 }
 complex complex::operator*(const double& y) {
 	complex c;
-	c.re = re*y;
-	c.im = im*y;
+	c.re_num = re_num*y;
+	c.im_num = im_num*y;
 	return c;
 }

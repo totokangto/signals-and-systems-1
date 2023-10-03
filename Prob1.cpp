@@ -7,19 +7,19 @@ using namespace std;
 int main() {
 	
 	// Problem 1 : Complex Numbers
-
+	
 	// 汗家荐 积己
-	complex com1(1, 2); // 1 + 2j
-	complex com2(2, 3); // 2 + 3j
+	complex com_num_1(3, 5); // 3 + 5j
+	complex com_num_2(4, 2); // 4 + 2j
 
 	// 汗家荐 怠祭
-	complex sum = com1 + com2; // (1 + 2j) + (2 + 3j) = 3 + 5j
+	complex sum_of_com = com_num_1 + com_num_2; // (3 + 5j) + (4 + 2j) = 7 + 7j
 
 	cout << "Verify the result value : ";
-	cout << sum.re << "+" << sum.im << "j" << endl;
+	cout << sum_of_com.re_num << "+" << sum_of_com.im_num << "j" << endl;
 	cout << "Magnitude : ";
-	cout << sum.mag() << endl;
+	cout << sum_of_com.get_mag() << endl;
 	cout << "Phase : ";
-	cout << sum.phase() << endl;
+	cout << sum_of_com.get_phase() << endl;
 	return 0;
 }
