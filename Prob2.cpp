@@ -7,24 +7,25 @@ using namespace std;
 
 int main(){
 	// 텍스트 파일 생성
-	ofstream out_file1;
-	ofstream out_file2;
-	out_file1.open("sine_graph_time.txt");
-	out_file2.open("sine_graph_output.txt");
+	ofstream t_axis_file;
+	ofstream op_axis_file;
+	t_axis_file.open("sine_graph_t_axis.txt");
+	op_axis_file.open("sine_graph_op_axis.txt");
 	// 변수 초기화
-	double fre, sample_fre, t, dt;
+	double freq, sample_freq, t, Ts;
 
-	// sampling frequency : 8000
+	// sampling frequency : ４４００
 	cout << "input the sample frequency : ";
-	cin >> sample_fre;
+	cin >> sample_freq;
 	t = 0;
-	fre = 440;
-	dt = 1.0 / sample_fre; 
+	freq = 440;
+	Ts = 1.0 / sample_freq; 
 
 	// 결과 값 파일에 출력
-	for (int i = 0; i < 50; i++, t = t + dt) {
-		out_file1 << t << endl; // x축
-		out_file2 << sin(2 * PI * fre * t) << endl; // y축
+	for (int i = 0; i < 50; i++, t = t + Ts) {
+		t_axis_file << t << endl; // x축
+		op_axis_file << sin(2 * PI * freq * t) << endl; // y축
 	}
+	cout << "결과 값을 txt파일로 저장했습니다.";
 	return 0;
 }
