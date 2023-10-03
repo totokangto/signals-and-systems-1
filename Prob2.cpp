@@ -14,7 +14,7 @@ int main(){
 	// 변수 초기화
 	double freq, sample_freq, t, Ts;
 
-	// sampling frequency : ４４００
+	// sampling frequency : 4400
 	cout << "input the sample frequency : ";
 	cin >> sample_freq;
 	t = 0;
