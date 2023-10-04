@@ -22,38 +22,39 @@ int main() {
 	double x_im_num = x2.im_num + x3.im_num + x4.im_num;
 	complex signal_x(x_re_num, x_im_num);
 	
+	// x(t)의 real number, imaginary number 값 확인해보기
 	cout << "real number of x(t) : " << x_re_num << endl;
 	cout << "imaginary number of x(t) : " << x_im_num << endl;
 
 	// x(t)의 magnitude, phase 구하기
 	double sig_x_mag = signal_x.get_mag();
-	double sig_x_phaser = signal_x.get_phase();
-	
+	double sig_x_phase = signal_x.get_phase();
+	sig_x_phase = sig_x_phase * (180 / PI); // radian to degree
 
 	// magnitude, phase 값 확인해보기
 	cout << "magintude of x(t) : " << sig_x_mag << endl;
-	cout << "phaser of x(t) : " << sig_x_phaser << endl;
+	cout << "phase of x(t) : " << sig_x_phase << endl;
 
 	// 텍스트 파일 생성
 	ofstream t_axis_file;
 	ofstream sp_f_100_file;
 	t_axis_file.open("cosine_graph_t.txt");
-	sp_f_100_file.open("sp_f_100.txt");
+	sp_f_100_file.open("sp_f_30.txt"); // 100 50 30 10
 
 	// 변수 설정
 	double freq, sample_freq, t, Ts;
 
-	// sampling frequency :  100
+	// sampling frequency :  100 50 30 10 
 	cout << "input the sample frequency : ";
 	cin >> sample_freq;
 	t = 0;
-	freq = 15;
+	freq = (30 * PI) / (2 * PI);
 	Ts = 1.0 / sample_freq;
 	
 	// 결과 값 파일에 출력
 	for (int i = 0; i < 50; i++, t = t + Ts) {
 		t_axis_file << t << endl; // x축
-		sp_f_100_file << sig_x_mag*cos(2 * PI * freq * t-sig_x_mag) << endl; // y축
+		sp_f_100_file << sig_x_mag*cos(2 * PI * freq * t - sig_x_phase) << endl; // y축
 	}
 	cout << "결과 값을 txt파일로 저장했습니다.";
 	return 0;
