@@ -19,7 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Prob2.cpp" />
+    <ClCompile Include="complex.cpp" />
+    <ClCompile Include="Prob3.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="complex.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

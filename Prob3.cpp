@@ -37,14 +37,14 @@ int main() {
 
 	// 텍스트 파일 생성
 	ofstream t_axis_file;
-	ofstream sp_f_100_file;
+	ofstream sp_f_num_file;
 	t_axis_file.open("cosine_graph_t.txt");
-	sp_f_100_file.open("sp_f_30.txt"); // 100 50 30 10
+	sp_f_num_file.open("sp_f_200.txt"); // 200 100 50 20
 
 	// 변수 설정
 	double freq, sample_freq, t, Ts;
 
-	// sampling frequency :  100 50 30 10 
+	// sampling frequency : 200 100 50 20 
 	cout << "input the sample frequency : ";
 	cin >> sample_freq;
 	t = 0;
@@ -54,7 +54,7 @@ int main() {
 	// 결과 값 파일에 출력
 	for (int i = 0; i < 50; i++, t = t + Ts) {
 		t_axis_file << t << endl; // x축
-		sp_f_100_file << sig_x_mag*cos(2 * PI * freq * t - sig_x_phase) << endl; // y축
+		sp_f_num_file << sig_x_mag*cos(2 * PI * freq * t - sig_x_phase) << endl; // y축
 	}
 	cout << "결과 값을 txt파일로 저장했습니다.";
 	return 0;
