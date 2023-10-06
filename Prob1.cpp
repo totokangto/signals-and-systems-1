@@ -1,6 +1,7 @@
 #include<iostream>
 #include<cmath>
 #include"complex.h"
+#include<stdlib.h>
 
 using namespace std;
 
@@ -21,5 +22,6 @@ int main() {
 	cout << sum_of_com.get_mag() << endl;
 	cout << "Phase : ";
 	cout << sum_of_com.get_phase() << endl;
+	system("pause");
 	return 0;
 }
