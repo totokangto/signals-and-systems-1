@@ -1,6 +1,7 @@
 #include<iostream>
 #include<fstream>
 #include<cmath>
+#include<stdlib.h>
 
 #define PI 3.141592
 using namespace std;
@@ -27,5 +28,6 @@ int main(){
 		op_axis_file << sin(2 * PI * freq * t) << endl; // y축
 	}
 	cout << "결과 값을 txt파일로 저장했습니다.";
+	system("pause");
 	return 0;
 }
